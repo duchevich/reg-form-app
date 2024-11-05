@@ -1,95 +1,54 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    return (
+        <div>
+            <h1>Registration Form</h1>
+            <p>Please fill out this form with the required information</p>
+            <form method="post" action='https://register-demo.freecodecamp.org'>
+                <fieldset>
+                    <label htmlFor="first-name">Enter Your First Name: <input id="first-name" name="first-name"
+                                                                              type="text"
+                                                                              required/></label>
+                    <label htmlFor="last-name">Enter Your Last Name: <input id="last-name" name="last-name" type="text"
+                                                                            required/></label>
+                    <label htmlFor="email">Enter Your Email: <input id="email" name="email" type="email"
+                                                                    required/></label>
+                    <label htmlFor="new-password">Create a New Password: <input id="new-password" name="new-password"
+                                                                                type="password" pattern="[a-z0-5]{8,}"
+                                                                                required/></label>
+                </fieldset>
+                <fieldset>
+                    <legend>Account type (required)</legend>
+                    <label htmlFor="personal-account"><input id="personal-account" type="radio" name="account-type"
+                                                             className="inline" checked/> Personal</label>
+                    <label htmlFor="business-account"><input id="business-account" type="radio" name="account-type"
+                                                             className="inline"/> Business</label>
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="profile-picture">Upload a profile picture: <input id="profile-picture" type="file"
+                                                                                      name="file"/></label>
+                    <label htmlFor="age">Input your age (years): <input id="age" type="number" name="age" min="13"
+                                                                        max="120"/></label>
+                    <label htmlFor="referrer">How did you hear about us?
+                        <select id="referrer" name="referrer">
+                            <option value="">(select one)</option>
+                            <option value="1">freeCodeCamp News</option>
+                            <option value="2">freeCodeCamp YouTube Channel</option>
+                            <option value="3">freeCodeCamp Forum</option>
+                            <option value="4">Other</option>
+                        </select>
+                    </label>
+                    <label htmlFor="bio">Provide a bio:
+                        <textarea id="bio" name="bio" rows="3" cols="30"
+                                  placeholder="I like coding on the beach..."></textarea>
+                    </label>
+                </fieldset>
+                <label htmlFor="terms-and-conditions">
+                    <input className="inline" id="terms-and-conditions" type="checkbox" required
+                           name="terms-and-conditions"/> I
+                    accept the <a href="https://www.freecodecamp.org/news/terms-of-service/">terms and conditions</a>
+                </label>
+                <input type="submit" value="Submit"/>
+            </form>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }
